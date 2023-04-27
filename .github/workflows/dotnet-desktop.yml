@@ -98,3 +98,16 @@ jobs:
       with:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages
+        
+    - name: Compilar la API
+      run: dotnet build $env:Wap_Project_Directory --configuration Release --output ./build
+      
+    - name: Desplegar la API en GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with: 
+        personal_token: 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
+        publish_dir: Domino\bin\Debug\net6.0\
+
+      
+      
+
